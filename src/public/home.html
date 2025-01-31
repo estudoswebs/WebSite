@@ -29,7 +29,7 @@
           <!-- Primary Top Nav -->
           <ul class="nav-list primary-nav">
             <li class="nav-item">
-              <a href="./home" class="nav-link">
+              <a href="./home" class="nav-link active">
                 <span class="material-symbols-rounded">home</span>
                 <span class="nav-label">Home</span>
               </a>
@@ -164,6 +164,90 @@
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
     <script src="../../firebaseConfig.js"></script>
     <script src="../js/auth-guard.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+// Inicializa o Firebase (certifique-se de que o firebaseConfig.js esteja configurado corretamente)
+const db = firebase.firestore();
+const auth = firebase.auth();
+
+// Função para carregar a cor do usuário do Firestore
+const loadUserColor = async () => {
+  const user = auth.currentUser;
+
+  if (user) {
+    // Pega o UID do usuário
+    const uid = user.uid;
+    
+    // Acessa a coleção "users" e o documento com o UID
+    const userDoc = await db.collection('users').doc(uid).get();
+    
+    if (userDoc.exists) {
+      const userData = userDoc.data();
+      const userColor = userData.color;
+      
+      if (userColor) {
+        // Define a classe do body para a cor armazenada
+        document.body.classList.add(userColor);
+        
+        // Marca o item correspondente como "Selecionado"
+        const colorElements = document.querySelectorAll('.color');
+        colorElements.forEach(color => {
+          if (color.querySelector('p#color-name').getAttribute('data') === userColor) {
+            color.querySelector('#selected').style.display = 'block';
+          } else {
+            color.querySelector('#selected').style.display = 'none'; // Garante que os outros fiquem invisíveis
+          }
+        });
+      }
+    }
+  }
+};
+
+// Escuta a mudança no estado de autenticação
+auth.onAuthStateChanged(async (user) => {
+  if (user) {
+    // Se o usuário estiver autenticado, carrega a cor
+    await loadUserColor();
+  } else {
+    // Caso o usuário não esteja autenticado, você pode tratar aqui, se necessário
+    console.log("Usuário não autenticado");
+  }
+});
+
+// Seleciona todos os elementos .color
+const colors = document.querySelectorAll('.color');
+
+colors.forEach(color => {
+  // Quando um item for clicado
+  color.addEventListener('click', async () => {
+    // Remove a classe 'selected' de todos os itens
+    document.querySelectorAll('.color p#selected').forEach(selected => {
+      selected.style.display = 'none';
+    });
+
+    // Adiciona a classe 'selected' ao item clicado
+    color.querySelector('#selected').style.display = 'block';
+
+    // Extrai o valor do atributo 'data' do item clicado
+    const dataValue = color.querySelector('p#color-name').getAttribute('data');
+
+    // Adiciona a classe correspondente no body
+    document.body.classList.remove(...document.body.classList); // Remove qualquer classe anterior
+    document.body.classList.add(dataValue);
+
+    // Atualiza a cor no Firestore
+    const user = auth.currentUser;
+    if (user) {
+      const uid = user.uid;
+      await db.collection('users').doc(uid).set({
+        color: dataValue
+      }, { merge: true });
+    }
+  });
+});
+});
+
+    </script>
 
     <!-- Modal de Carregamento -->
  <div id="loading-modal" class="loading-modal hide">

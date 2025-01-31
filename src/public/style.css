@@ -1,4 +1,107 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap');
+:root {
+
+    --primary: #007bff;
+    --secundary: #0056b3;
+    --box-shadow: #007bff27;
+
+}
+
+.green {
+    
+    --primary: #42ff0e;
+    --secundary: #1bb300;
+    --box-shadow: #37ff0027;
+}
+
+.pink {
+    
+    --primary: #f86cff;
+    --secundary: #c91dac;
+    --box-shadow: #fb00ff27;
+}
+
+.yellow {
+    
+    --primary: #fffc3c;
+    --secundary: #c1b615;
+    --box-shadow: #ffee0027;
+}
+
+.red {
+    
+    --primary: #ff3c3c;
+    --secundary: #b30000;
+    --box-shadow: #ff000027;
+}
+
+.purple {
+    
+    --primary: #8d3cff;
+    --secundary: #4800b3;
+    --box-shadow: #8800ff27;
+}
+
+.orange {
+    
+    --primary: #ff8a3c;
+    --secundary: #b36500;
+    --box-shadow: #ffa20027;
+}
+
+.teal {
+    --primary: #00b3a6;
+    --secundary: #00897b;
+    --box-shadow: #00b3a627;
+}
+
+.cyan {
+    --primary: #00d9ff;
+    --secundary: #0096b3;
+    --box-shadow: #00d9ff27;
+}
+
+.lime {
+    --primary: #aaff00;
+    --secundary: #7bb300;
+    --box-shadow: #aaff0027;
+}
+
+.brown {
+    --primary: #a0522d;
+    --secundary: #703c1d;
+    --box-shadow: #a0522d27;
+}
+
+.gray {
+    --primary: #808080;
+    --secundary: #4d4d4d;
+    --box-shadow: #80808027;
+}
+
+.olive {
+    --primary: #808000;
+    --secundary: #666600;
+    --box-shadow: #80800027;
+}
+
+.navy {
+    --primary: #000080;
+    --secundary: #000066;
+    --box-shadow: #00008027;
+}
+
+.indigo {
+    --primary: #4b0082;
+    --secundary: #3a0066;
+    --box-shadow: #4b008227;
+}
+
+.silver {
+    --primary: #c0c0c0;
+    --secundary: #a0a0a0;
+    --box-shadow: #c0c0c027;
+}
 
 *{
     margin: 0;
@@ -11,6 +114,68 @@ body {
     height: 100vh;
     background-color: #0a0c12;
     overflow-x: hidden;
+    color: #f9f9f9;
+}
+
+.colors {
+    width: 100%;
+    background-color: #0d1016;
+    padding: 20px;
+    box-shadow: 0 0 10px #0000006d;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(207px, 1fr)); /* Ajuste automático de colunas */
+    gap: 1rem .8rem;
+    box-sizing: border-box; /* Certifique-se de que o padding não afete o tamanho */
+}
+
+.color {
+    position: relative;
+    width: 100%; /* Ajuste para garantir que o item ocupe toda a largura da célula do grid */
+    height: 150px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(0deg, var(--color1), var(--color2));
+    border: 4px solid #1c1f2b;
+    box-shadow: 0 0 15px #00000070;
+    gap: 1px;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+    box-sizing: border-box; /* Garante que o padding não afete o tamanho */
+}
+
+.color #color-name {
+    font-size: 1.3rem;
+}
+
+.color #selected {
+    font-size: .8rem;
+    font-style: italic;
+}
+
+.color:hover {
+    transform: scale(1.05);
+}
+
+/* Garantir que a grid tenha uma margem inferior no final da tela */
+@media (max-width: 768px) {
+    .colors {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Ajusta para telas pequenas */
+    }
+}
+
+@media (max-width: 480px) {
+    .colors {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Ajusta ainda mais para telas muito pequenas */
+    }
+}
+
+
+#name {
+    color: var(--primary);
 }
 
   .sidebar {
@@ -61,7 +226,7 @@ body {
     border: none;
     cursor: pointer;
     display: flex;
-    background: #007bff;
+    background: var(--secundary);
     align-items: center;
     justify-content: center;
     border-radius: 8px;
@@ -81,7 +246,7 @@ body {
     transform: rotate(180deg);
   }
   .sidebar-header .sidebar-toggler:hover {
-    background: #0056b3;
+    background: var(--secundary);
   }
   .sidebar-nav .nav-list {
     list-style: none;
@@ -120,7 +285,11 @@ body {
   }
   .sidebar-nav .nav-item:is(:hover, .open)>.nav-link:not(.dropdown-title) {
     color: #f9f9f9;
-    background: #0056b3;
+    background: var(--secundary);
+  }
+
+  .sidebar .nav-link.active {
+    background-color: var(--secundary);
   }
   .sidebar .nav-link .nav-label {
     transition: opacity 0.3s ease;
@@ -233,12 +402,12 @@ body {
     }
 
     .sidebar.collapsed ~ section {
-        width: 90%;
+        width: 100%;
         transform: translateX(0) translateY(40px);
       }
     
       .sidebar ~ section {
-        width: 90%;
+        width: 100%;
         transform: translateX(0) translateY(40px);
       }
     
@@ -345,7 +514,7 @@ nav.menu-lateral.expandir .txt-link{
 }
 
 .btns-fixed button {
-    background-color: #007bff;
+    background-color: var(--primary);
     color: white;
     border: none;
     border-radius: 50%;
@@ -365,7 +534,7 @@ nav.menu-lateral.expandir .txt-link{
 }
 
 .btns-fixed button:hover {
-    background-color: #0056b3;
+    background-color: var(--secundary);
     transform: scale(1.1);
 }
 
@@ -409,7 +578,7 @@ nav.menu-lateral.expandir .txt-link{
     width: 40px;
     height: 40px;
     border: 4px solid #d9d9d9;
-    border-top: 4px solid #1d7fc0;
+    border-top: 4px solid var(--primary);
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -461,7 +630,7 @@ input[type="text"], textarea, select {
 }
 
 input[type="text"]:focus, textarea:focus, select:focus {
-    border-color: #007bff;
+    border-color: var(--primary);
     outline: none;
 }
 
@@ -491,7 +660,7 @@ select::after {
     display: block;
     width: 100%;
     padding: 12px;
-    background-color: #007bff;
+    background-color: var(--primary);
     border: none;
     border-radius: 8px;
     color: white;
@@ -503,7 +672,7 @@ select::after {
 }
 
 .btn-submit:hover {
-    background-color: #0056b3;
+    background-color: var(--secundary);
 }
 
 section {
@@ -513,7 +682,7 @@ section {
 }
 
 section h1{
-    color: #007bff;
+    color: var(--primary);
     font-size: 2.7rem;
 }
 
@@ -534,7 +703,7 @@ section > .inputs > input#comment {
 section > .inputs > button{
     width: 42px;
     height: 42px;
-    background-color: #007bff;
+    background-color: var(--primary);
     border: none;
     box-shadow: 0 0 10px #0000009f;
     border-radius: 20%;
@@ -575,10 +744,10 @@ section > .inputs > button{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #007bff;
+    background-color: var(--primary);
     border-radius: 20%;
     color: #fff;
-    box-shadow: 0 0 20px #007bff27;
+    box-shadow: 0 0 20px var(--box-shadow);
 }
 
 .channel-modal-content .header .infos i {
@@ -589,7 +758,7 @@ section > .inputs > button{
 .channel-modal-content .header .name {
     font-size: 1.4rem;
     font-weight: bold;
-    color: #007bff;
+    color: var(--primary);
 }
 
 .channel .description {
@@ -686,7 +855,7 @@ section > .inputs > button{
     border: none;
     border-top: 2px solid #1c1f2b;
     font-size: 1.2rem;
-    color: #007bff;
+    color: var(--primary);
     cursor: pointer;
 }
 
@@ -706,7 +875,7 @@ section > .inputs > button{
     border-radius: 10px;
     font-size: 1.2rem;
     border: none;
-    background-color: #007bff;
+    background-color: var(--primary);
     color: #fff;
     transition: .5s ease-in-out;
     cursor: pointer;
@@ -732,7 +901,7 @@ section > .inputs > button{
 }
 
 .materias .materia-item p#name {
-    color: #007bff;
+    color: var(--primary);
     font-size: 1.3rem;
     font-weight: bold;
 }
@@ -744,25 +913,25 @@ section > .inputs > button{
 }
 
 .materias .materia-item p b{
-    color: #007bff;
+    color: var(--primary);
 }
 
 .materias .materia-item button{
     padding: 10px 20px;
     margin-top: 10px;
     border-radius: 8px;
-    border: 2px solid #007bff;
+    border: 2px solid var(--primary);
     background-color: transparent;
-    color: #007bff;
+    color: var(--primary);
     font-size: 1.3rem;
     transition: all .5s ease-in-out;
     box-shadow: 0 0 10px #0000003f;
 }
 
 .materias .materia-item button:hover {
-    background-color: #007bff;
+    background-color: var(--primary);
     color: #fff;
-    box-shadow: 0 0 15px #0056b3;
+    box-shadow: 0 0 15px var(--secundary);
 }
 
 .btns-fixed-top {
@@ -773,7 +942,7 @@ section > .inputs > button{
 }
 
 .btns-fixed-top button {
-    background-color: #007bff;
+    background-color: var(--primary);
     color: white;
     border: none;
     border-radius: 50%;
@@ -793,7 +962,7 @@ section > .inputs > button{
 }
 
 .btns-fixed-top button:hover {
-    background-color: #0056b3;
+    background-color: var(--secundary);
     transform: scale(1.1);
 }
 
@@ -859,7 +1028,7 @@ section > .inputs > button{
 }
 
 .modal-notf-content ul#notfs-list li#notfs-item .info h3{
-    color: #007bff;
+    color: var(--primary);
 }
 
 .modal-notf-content ul#notfs-list li#notfs-item:last-child {
@@ -872,7 +1041,7 @@ section > .inputs > button{
 }
 
 .modal-notf-content ul#notfs-list::-webkit-scrollbar-thumb {
-    background-color: #116acf; /* Cor da barra */
+    background-color: var(--primary); /* Cor da barra */
     border-radius: 10px; /* Deixa a barra arredondada */
 }
 
@@ -882,7 +1051,7 @@ section > .inputs > button{
 
 /* Estilo do botão */
 .modal-notf button {
-    background-color: #116acf;
+    background-color: var(--primary);
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -892,7 +1061,7 @@ section > .inputs > button{
 }
 
 .modal-notf button:hover {
-    background-color: #0d5ca0;
+    background-color: var(--secundary);
 }
 
 .avisos {
@@ -996,7 +1165,7 @@ section > .inputs > button{
         padding: 0;
         height: 80px;
         z-index: 1;
-        box-shadow: 0px -5px 0 #007bff;
+        box-shadow: 0px -5px 0 var(--secundary);
     }
 
     nav.menu-lateral ul {
@@ -1039,7 +1208,7 @@ section > .inputs > button{
 
    ul li.item-menu a:hover,
    ul li.item-menu a.active {
-        background-color: #007bff;
+        background-color: var(--primary);
         margin-bottom: 0px;
    }
 
@@ -1081,9 +1250,9 @@ section > .inputs > button{
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #007bff;
+        background-color: var(--primary);
         border-radius: 20%;
         color: #fff;
-        box-shadow: 0 0 20px #007bff27;
+        box-shadow: 0 0 20px var(--box-shadow);
     }
 }
