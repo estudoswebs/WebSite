@@ -1,5 +1,102 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;700&display=swap');
 
+
+:root {
+    --primary: #007bff;
+    --secundary: #0056b3;
+    --box-shadow: #007bff27;
+}
+
+.green {
+    --primary: #42ff0e;
+    --secundary: #1bb300;
+    --box-shadow: #37ff0027;
+}
+
+.pink {
+    --primary: #f86cff;
+    --secundary: #c91dac;
+    --box-shadow: #fb00ff27;
+}
+
+.yellow {
+    --primary: #fffc3c;
+    --secundary: #c1b615;
+    --box-shadow: #ffee0027;
+}
+
+.red {
+    --primary: #ff3c3c;
+    --secundary: #b30000;
+    --box-shadow: #ff000027;
+}
+
+.purple {
+    --primary: #8d3cff;
+    --secundary: #4800b3;
+    --box-shadow: #8800ff27;
+}
+
+.orange {
+    --primary: #ff8a3c;
+    --secundary: #b36500;
+    --box-shadow: #ffa20027;
+}
+
+.teal {
+    --primary: #00b3a6;
+    --secundary: #00897b;
+    --box-shadow: #00b3a627;
+}
+
+.cyan {
+    --primary: #00d9ff;
+    --secundary: #0096b3;
+    --box-shadow: #00d9ff27;
+}
+
+.lime {
+    --primary: #aaff00;
+    --secundary: #7bb300;
+    --box-shadow: #aaff0027;
+}
+
+.brown {
+    --primary: #a0522d;
+    --secundary: #703c1d;
+    --box-shadow: #a0522d27;
+}
+
+.gray {
+    --primary: #808080;
+    --secundary: #4d4d4d;
+    --box-shadow: #80808027;
+}
+
+.olive {
+    --primary: #808000;
+    --secundary: #666600;
+    --box-shadow: #80800027;
+}
+
+.navy {
+    --primary: #000080;
+    --secundary: #000066;
+    --box-shadow: #00008027;
+}
+
+.indigo {
+    --primary: #4b0082;
+    --secundary: #3a0066;
+    --box-shadow: #4b008227;
+}
+
+.silver {
+    --primary: #c0c0c0;
+    --secundary: #a0a0a0;
+    --box-shadow: #c0c0c027;
+}
+
 body {
     font-family: 'Exo', sans-serif;
     background-color: #0a0c12;
@@ -40,7 +137,7 @@ input[type="text"]::placeholder {
 }
 
 input[type="text"]:focus {
-    border-color: #007bff;
+    border-color: var(--primary);
     outline: none;
 }
 
@@ -49,7 +146,7 @@ button {
     padding: 1rem;
     border: none;
     border-radius: 8px;
-    background-color: #007bff;
+    background-color: var(--secundary);
     color: #fff;
     font-size: 1rem;
     cursor: pointer;
@@ -58,12 +155,12 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: var(--primary);
     transform: translateY(-2px);
 }
 
 button:active {
-    background-color: #004080;
+    background-color: var(--secundary);
 }
 
 .checkbox {
@@ -99,11 +196,11 @@ button:active {
 
 .checkbox input:checked + label::before {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23ffffff' d='M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z'/%3E%3C/svg%3E");
-    background-color: #116acf;
+    background-color: var(--primary);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 14px 14px;
-    border: 1px solid #116acf;
+    border: 1px solid var(--primary);
 }
 
 .checkbox input:checked + label {
@@ -145,7 +242,7 @@ button:active {
     width: 45px;
     height: 45px;
     border: 4px solid #c2c2c2;
-    border-top: 4px solid #2196F3;
+    border-top: 4px solid var(--primary);
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }

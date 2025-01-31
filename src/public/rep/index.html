@@ -8,6 +8,101 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Exo:wght@400;700&display=swap');
 
+        :root {
+    --primary: #007bff;
+    --secundary: #0056b3;
+    --box-shadow: #007bff27;
+}
+
+.green {
+    --primary: #42ff0e;
+    --secundary: #1bb300;
+    --box-shadow: #37ff0027;
+}
+
+.pink {
+    --primary: #f86cff;
+    --secundary: #c91dac;
+    --box-shadow: #fb00ff27;
+}
+
+.yellow {
+    --primary: #fffc3c;
+    --secundary: #c1b615;
+    --box-shadow: #ffee0027;
+}
+
+.red {
+    --primary: #ff3c3c;
+    --secundary: #b30000;
+    --box-shadow: #ff000027;
+}
+
+.purple {
+    --primary: #8d3cff;
+    --secundary: #4800b3;
+    --box-shadow: #8800ff27;
+}
+
+.orange {
+    --primary: #ff8a3c;
+    --secundary: #b36500;
+    --box-shadow: #ffa20027;
+}
+
+.teal {
+    --primary: #00b3a6;
+    --secundary: #00897b;
+    --box-shadow: #00b3a627;
+}
+
+.cyan {
+    --primary: #00d9ff;
+    --secundary: #0096b3;
+    --box-shadow: #00d9ff27;
+}
+
+.lime {
+    --primary: #aaff00;
+    --secundary: #7bb300;
+    --box-shadow: #aaff0027;
+}
+
+.brown {
+    --primary: #a0522d;
+    --secundary: #703c1d;
+    --box-shadow: #a0522d27;
+}
+
+.gray {
+    --primary: #808080;
+    --secundary: #4d4d4d;
+    --box-shadow: #80808027;
+}
+
+.olive {
+    --primary: #808000;
+    --secundary: #666600;
+    --box-shadow: #80800027;
+}
+
+.navy {
+    --primary: #000080;
+    --secundary: #000066;
+    --box-shadow: #00008027;
+}
+
+.indigo {
+    --primary: #4b0082;
+    --secundary: #3a0066;
+    --box-shadow: #4b008227;
+}
+
+.silver {
+    --primary: #c0c0c0;
+    --secundary: #a0a0a0;
+    --box-shadow: #c0c0c027;
+}
         body {
             font-family: 'Exo', sans-serif;
             background-color: #0a0c12;
@@ -48,7 +143,7 @@
         }
 
         input[type="text"]:focus {
-            border-color: #007bff;
+            border-color: var(--primary);
             outline: none;
         }
 
@@ -57,7 +152,7 @@
             padding: 1rem;
             border: none;
             border-radius: 8px;
-            background-color: #007bff;
+            background-color: var(--secundary);
             color: #fff;
             font-size: 1rem;
             cursor: pointer;
@@ -66,12 +161,12 @@
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: var(--secundary);
             transform: translateY(-2px);
         }
 
         button:active {
-            background-color: #004080;
+            background-color: var(--secundary);
         }
 
         .checkbox {
@@ -107,11 +202,11 @@
 
         .checkbox input:checked + label::before {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23ffffff' d='M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z'/%3E%3C/svg%3E");
-            background-color: #116acf;
+            background-color: var(--secundary);
             background-position: center;
             background-repeat: no-repeat;
             background-size: 14px 14px;
-            border: 1px solid #116acf;
+            border: 1px solid var(--secundary);
         }
 
         .checkbox input:checked + label {
@@ -140,7 +235,7 @@
         .spinner {
             border: 4px solid rgba(0, 0, 0, 0.1);
             border-radius: 50%;
-            border-top: 4px solid #007bff;
+            border-top: 4px solid var(--primary);
             width: 40px;
             height: 40px;
             animation: spin 1s linear infinite;
@@ -162,24 +257,24 @@
         <input type="text" id="aviso-input" placeholder="Digite o aviso">
         <p>Escolha a classe:</p>
         <div class="checkbox">
-            <input type="checkbox" id="9A">
-            <label for="9A">9ºA</label>
+            <input type="checkbox" id="1A">
+            <label for="1A">1ºA</label>
     
-            <input type="checkbox" id="9B">
-            <label for="9B">9ºB</label>
+            <input type="checkbox" id="1B">
+            <label for="1B">1ºB</label>
     
-            <input type="checkbox" id="9C">
-            <label for="9C">9ºC</label>
+            <input type="checkbox" id="1C">
+            <label for="1C">1ºC</label>
     
-            <input type="checkbox" id="9D">
-            <label for="9D">9ºD</label>
+            <input type="checkbox" id="1D">
+            <label for="1D">1ºD</label>
         </div>
         <div class="checkbox">
-            <input type="checkbox" id="9E">
-            <label for="9E">9ºE</label>
+            <input type="checkbox" id="1E">
+            <label for="1E">1ºE</label>
     
-            <input type="checkbox" id="9F">
-            <label for="9F">9ºF</label>
+            <input type="checkbox" id="1F">
+            <label for="1F">1ºF</label>
     
             <input type="checkbox" id="all">
             <label for="all">Todos</label>
@@ -194,6 +289,91 @@
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
     <script src="../../../firebaseConfig.js"></script>
     
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+  // Inicializa o Firebase (certifique-se de que o firebaseConfig.js esteja configurado corretamente)
+  const db = firebase.firestore();
+  const auth = firebase.auth();
+  
+  // Função para carregar a cor do usuário do Firestore
+  const loadUserColor = async () => {
+    const user = auth.currentUser;
+  
+    if (user) {
+      // Pega o UID do usuário
+      const uid = user.uid;
+      
+      // Acessa a coleção "users" e o documento com o UID
+      const userDoc = await db.collection('users').doc(uid).get();
+      
+      if (userDoc.exists) {
+        const userData = userDoc.data();
+        const userColor = userData.color;
+        
+        if (userColor) {
+          // Define a classe do body para a cor armazenada
+          document.body.classList.add(userColor);
+          
+          // Marca o item correspondente como "Selecionado"
+          const colorElements = document.querySelectorAll('.color');
+          colorElements.forEach(color => {
+            if (color.querySelector('p#color-name').getAttribute('data') === userColor) {
+              color.querySelector('#selected').style.display = 'block';
+            } else {
+              color.querySelector('#selected').style.display = 'none'; // Garante que os outros fiquem invisíveis
+            }
+          });
+        }
+      }
+    }
+  };
+  
+  // Escuta a mudança no estado de autenticação
+  auth.onAuthStateChanged(async (user) => {
+    if (user) {
+      // Se o usuário estiver autenticado, carrega a cor
+      await loadUserColor();
+    } else {
+      // Caso o usuário não esteja autenticado, você pode tratar aqui, se necessário
+      console.log("Usuário não autenticado");
+    }
+  });
+  
+  // Seleciona todos os elementos .color
+  const colors = document.querySelectorAll('.color');
+  
+  colors.forEach(color => {
+    // Quando um item for clicado
+    color.addEventListener('click', async () => {
+      // Remove a classe 'selected' de todos os itens
+      document.querySelectorAll('.color p#selected').forEach(selected => {
+        selected.style.display = 'none';
+      });
+  
+      // Adiciona a classe 'selected' ao item clicado
+      color.querySelector('#selected').style.display = 'block';
+  
+      // Extrai o valor do atributo 'data' do item clicado
+      const dataValue = color.querySelector('p#color-name').getAttribute('data');
+  
+      // Adiciona a classe correspondente no body
+      document.body.classList.remove(...document.body.classList); // Remove qualquer classe anterior
+      document.body.classList.add(dataValue);
+  
+      // Atualiza a cor no Firestore
+      const user = auth.currentUser;
+      if (user) {
+        const uid = user.uid;
+        await db.collection('users').doc(uid).set({
+          color: dataValue
+        }, { merge: true });
+      }
+    });
+  });
+  });
+  
+      </script>
+
     <script>
         // Inicializar Firestore
         const db = firebase.firestore();
