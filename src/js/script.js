@@ -62,3 +62,4 @@ function hideLoadingModal() {
     const loadingModal = document.getElementById('loading-modal');
     loadingModal.classList.add('hide');
 }
+

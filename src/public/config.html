@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Config - Estudos</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .content-warn {
+            background: #10131c;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+        }
+
+        h1 {
+            font-size: 20px;
+            color: #f9f9f9;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-warn">
+        <h1>Esta página ainda não foi lançada. Pode estar em manutenção ou em construção. Por favor, volte mais tarde! 🚧😊</h1>
+        <button onclick="voltar()">Voltar</button>
+    </div>
+
+    <script>
+        function voltar() {
+            window.location.href = 'home'
+        }
+    </script>
+</body>
+</html>
